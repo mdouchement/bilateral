@@ -6,7 +6,7 @@
 
 A Fast Bilateral filter for Golang.
 
-Algorithm and implementation is based on http://people.csail.mit.edu/sparis/bf/ provided by [Sylvain Paris](https://people.csail.mit.edu/sparis/) and [Frédo Durand](http://people.csail.mit.edu/fredo/) <br>
+Algorithm and implementation is based on http://people.csail.mit.edu/sparis/bf/ <br>
 Please cite above paper for research purpose.
 
 | Before | After
@@ -45,6 +45,8 @@ defer fo.Close()
 
 jpeg.Encode(fo, m2, &jpeg.Options{Quality: 100})
 ```
+
+[Full example](https://github.com/mdouchement/bilateral/blob/master/data/main.go)
 
 ## Licence
 

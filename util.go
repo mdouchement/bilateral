@@ -1,5 +1,7 @@
 package bilateral
 
+const maxrange = 65535
+
 func clamp(min, max, v int) int {
 	if v < min {
 		v = 0

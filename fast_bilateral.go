@@ -11,7 +11,6 @@ import (
 )
 
 const (
-	maxrange = 65535
 	// padding space
 	paddingS = 2
 	// padding range (color)

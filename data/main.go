@@ -7,8 +7,6 @@ import (
 	"os"
 	"time"
 
-	_ "github.com/mdouchement/thdr/ppm"
-
 	"github.com/mdouchement/bilateral"
 )
 
