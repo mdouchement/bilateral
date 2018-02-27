@@ -1,5 +1,9 @@
 # Fast Bilateral filter
 
+[![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg)](https://godoc.org/github.com/mdouchement/bilateral)
+[![Go Report Card](https://goreportcard.com/badge/github.com/mdouchement/bilateral)](https://goreportcard.com/report/github.com/mdouchement/bilateral)
+[![License](https://img.shields.io/github/license/mdouchement/bilateral.svg)](http://opensource.org/licenses/MIT)
+
 A Fast Bilateral filter for Golang.
 
 Algorithm and implementation is based on http://people.csail.mit.edu/sparis/bf/ provided by [Sylvain Paris](https://people.csail.mit.edu/sparis/) and [Frédo Durand](http://people.csail.mit.edu/fredo/) <br>
