@@ -237,15 +237,15 @@ func (f *FastBilateral) convolution() {
 // func (f *FastBilateral) trilinearInterpolation(gx, gy, gz float64) float64 {
 // 	width := f.size[0]
 // 	height := f.size[1]
-// 	depth := f.size[2+c]
+// 	depth := f.size[2+c1]
 //
 // 	// Index
-// 	x := f.clamp(0, width-1, int(gx))
-// 	xx := f.clamp(0, width-1, x+1)
-// 	y := f.clamp(0, height-1, int(gy))
-// 	yy := f.clamp(0, height-1, y+1)
-// 	z := f.clamp(0, depth-1, int(gz))
-// 	zz := f.clamp(0, depth-1, z+1)
+// 	x := clamp(0, width-1, int(gx))
+// 	xx := clamp(0, width-1, x+1)
+// 	y := clamp(0, height-1, int(gy))
+// 	yy := clamp(0, height-1, y+1)
+// 	z := clamp(0, depth-1, int(gz))
+// 	zz := clamp(0, depth-1, z+1)
 //
 // 	// Alpha
 // 	xa := gx - float64(x)
@@ -253,14 +253,14 @@ func (f *FastBilateral) convolution() {
 // 	za := gz - float64(z)
 //
 // 	// Interpolation
-// 	return (1.0-ya)*(1.0-xa)*(1.0-za)*f.grid.At(x, y, z).color.At(0) +
-// 		(1.0-ya)*xa*(1.0-za)*f.grid.At(xx, y, z).color.At(0) +
-// 		ya*(1.0-xa)*(1.0-za)*f.grid.At(x, yy, z).color.At(0) +
-// 		ya*xa*(1.0-za)*f.grid.At(xx, yy, z).color.At(0) +
-// 		(1.0-ya)*(1.0-xa)*za*f.grid.At(x, y, zz).color.At(0) +
-// 		(1.0-ya)*xa*za*f.grid.At(xx, y, zz).color.At(0) +
-// 		ya*(1.0-xa)*za*f.grid.At(x, yy, zz).color.At(0) +
-// 		ya*xa*za*f.grid.At(xx, yy, zz).color.At(0)
+// 	return (1.0-ya)*(1.0-xa)*(1.0-za)*f.grid.At(x, y, z).colors.At(c1, 0) +
+// 		(1.0-ya)*xa*(1.0-za)*f.grid.At(xx, y, z).colors.At(c1, 0) +
+// 		ya*(1.0-xa)*(1.0-za)*f.grid.At(x, yy, z).colors.At(c1, 0) +
+// 		ya*xa*(1.0-za)*f.grid.At(xx, yy, z).colors.At(c1, 0) +
+// 		(1.0-ya)*(1.0-xa)*za*f.grid.At(x, y, zz).colors.At(c1, 0) +
+// 		(1.0-ya)*xa*za*f.grid.At(xx, y, zz).colors.At(c1, 0) +
+// 		ya*(1.0-xa)*za*f.grid.At(x, yy, zz).colors.At(c1, 0) +
+// 		ya*xa*za*f.grid.At(xx, yy, zz).colors.At(c1, 0)
 // }
 func (f *FastBilateral) nLinearInterpolation(offset ...float64) *cell {
 	permutations := 1 << uint(f.dimension)
@@ -279,10 +279,11 @@ func (f *FastBilateral) nLinearInterpolation(offset ...float64) *cell {
 	// Interpolation
 	c := &cell{colors: mat.NewVecDense(f.dimension-2, nil)}
 	bitset := big.NewInt(int64(0)) // Use to perform all the interpolation's permutations
+	off := make([]int, f.dimension)
+	var scale float64
 	for i := 0; i < permutations; i++ {
 		bitset.SetUint64(uint64(i))
-		off := make([]int, f.dimension)
-		scale := 1.0
+		scale = 1.0
 		for n := 0; n < f.dimension; n++ {
 			if bitset.Bit(n) == 1 {
 				off[n] = index[n]
