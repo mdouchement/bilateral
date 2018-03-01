@@ -69,6 +69,16 @@ func (f *FastBilateral) Execute() {
 	f.convolution()
 }
 
+// ColorModel returns the Image's color model.
+func (f *FastBilateral) ColorModel() color.Model {
+	return color.RGBAModel
+}
+
+// Bounds implements image.Image interface.
+func (f *FastBilateral) Bounds() image.Rectangle {
+	return f.Image.Bounds()
+}
+
 // At computes the interpolation and returns the filtered color at the given coordinates.
 func (f *FastBilateral) At(x, y int) color.Color {
 	pixel := f.Image.At(x, y)

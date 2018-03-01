@@ -1,10 +1,12 @@
-# Fast Bilateral filter
+# Fast Bilateral filter for Golang
 
 [![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg)](https://godoc.org/github.com/mdouchement/bilateral)
 [![Go Report Card](https://goreportcard.com/badge/github.com/mdouchement/bilateral)](https://goreportcard.com/report/github.com/mdouchement/bilateral)
 [![License](https://img.shields.io/github/license/mdouchement/bilateral.svg)](http://opensource.org/licenses/MIT)
 
-A Fast Bilateral filter for Golang.
+A FastBilateral filter is a non-linear, edge-preserving and noise-reducing
+smoothing filter for images. The intensity value at each pixel in an image is
+replaced by a weighted average of intensity values from nearby pixels.
 
 Algorithm and implementation is based on http://people.csail.mit.edu/sparis/bf/ <br>
 Please cite above paper for research purpose.
@@ -38,7 +40,7 @@ m, _, _ := image.Decode(fi)
 start := time.Now()
 fbl := bilateral.NewFastBilateral(m, 16, 0.1)
 fbl.Execute()
-m2 := fbl.ResultImage() // Or use `At(x, y)` func
+m2 := fbl.ResultImage() // Or use `At(x, y)` func or just use `fbl` as an image.Image for chained treatments.
 
 fo, _ := os.Create("output_path")
 defer fo.Close()
