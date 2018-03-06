@@ -15,8 +15,8 @@ Please cite above paper for research purpose.
 
 | Original | Filtered | Luminance Filtered |
 |:--:|:--:|:--:|
-| ![original](https://github.com/mdouchement/bilateral/blob/master/data/greekdome-gray.jpeg)<br><br><br> | ![filtered](https://github.com/mdouchement/bilateral/blob/master/data/greekdome-gray-filtered.jpeg)<br>SigmaSpace: `16` - SigmaRange: `0.076` (auto)<br>Execution time `1.22s` | ![luminance](https://github.com/mdouchement/bilateral/blob/master/data/greekdome-gray-filtered-lum.jpeg)<br>SigmaSpace: `16` - SigmaRange: `0.76` (auto)<br>Execution time `348.56ms` |
-| ![original](https://github.com/mdouchement/bilateral/blob/master/data/greekdome.jpeg)<br><br><br> | ![filtered](https://github.com/mdouchement/bilateral/blob/master/data/greekdome-filtered.jpeg)<br>SigmaSpace: `16` - SigmaRange: `0.092` (auto)<br>Execution time `21.66s` | ![luminance](https://github.com/mdouchement/bilateral/blob/master/data/greekdome-filtered-lum.jpeg)<br>SigmaSpace: `16` - SigmaRange: `0.76` (auto)<br>Execution time `347.69ms` |
+| ![original](https://github.com/mdouchement/bilateral/blob/master/data/greekdome-gray.jpeg)<br><br><br><br> | ![filtered](https://github.com/mdouchement/bilateral/blob/master/data/greekdome-gray-filtered.jpeg)<br>SigmaSpace: `16`<br>SigmaRange: `0.076` (auto)<br>Execution time `1.22s` | ![luminance](https://github.com/mdouchement/bilateral/blob/master/data/greekdome-gray-filtered-lum.jpeg)<br>SigmaSpace: `16`<br>SigmaRange: `0.76` (auto)<br>Execution time `348.56ms` |
+| ![original](https://github.com/mdouchement/bilateral/blob/master/data/greekdome.jpeg)<br><br><br><br> | ![filtered](https://github.com/mdouchement/bilateral/blob/master/data/greekdome-filtered.jpeg)<br>SigmaSpace: `16`<br>SigmaRange: `0.092` (auto)<br>Execution time `21.66s` | ![luminance](https://github.com/mdouchement/bilateral/blob/master/data/greekdome-filtered-lum.jpeg)<br>SigmaSpace: `16`<br>SigmaRange: `0.76` (auto)<br>Execution time `347.69ms` |
 
 ```go
 // Fast Bilateral
