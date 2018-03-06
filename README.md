@@ -11,13 +11,20 @@ replaced by a weighted average of intensity values from nearby pixels.
 Algorithm and implementation is based on http://people.csail.mit.edu/sparis/bf/ <br>
 Please cite above paper for research purpose.
 
-| Before | After
-|:--:|:--:|
-| ![before](https://github.com/mdouchement/bilateral/blob/master/data/greekdome-gray.jpeg) | ![after](https://github.com/mdouchement/bilateral/blob/master/data/greekdome-gray-filtered.jpeg) |
-| ![before](https://github.com/mdouchement/bilateral/blob/master/data/greekdome.jpeg) | ![after](https://github.com/mdouchement/bilateral/blob/master/data/greekdome-filtered.jpeg) |
 
-> Sigma Space: 16 <br>
-> Sigma Range/Color: 0.1
+
+| Original | Filtered | Luminance Filtered |
+|:--:|:--:|:--:|
+| ![original](https://github.com/mdouchement/bilateral/blob/master/data/greekdome-gray.jpeg)<br><br><br> | ![filtered](https://github.com/mdouchement/bilateral/blob/master/data/greekdome-gray-filtered.jpeg)<br>SigmaSpace: `16` - SigmaRange: `0.076` (auto)<br>Execution time `1.22s` | ![luminance](https://github.com/mdouchement/bilateral/blob/master/data/greekdome-gray-filtered-lum.jpeg)<br>SigmaSpace: `16` - SigmaRange: `0.76` (auto)<br>Execution time `348.56ms` |
+| ![original](https://github.com/mdouchement/bilateral/blob/master/data/greekdome.jpeg)<br><br><br> | ![filtered](https://github.com/mdouchement/bilateral/blob/master/data/greekdome-filtered.jpeg)<br>SigmaSpace: `16` - SigmaRange: `0.092` (auto)<br>Execution time `21.66s` | ![luminance](https://github.com/mdouchement/bilateral/blob/master/data/greekdome-filtered-lum.jpeg)<br>SigmaSpace: `16` - SigmaRange: `0.76` (auto)<br>Execution time `347.69ms` |
+
+```go
+// Fast Bilateral
+bilateral.NewFastBilateralAuto(m)
+
+// Luminance Fast Bilateral
+luminance.NewFastBilateralAuto(m)
+```
 
 ## Requirements
 
