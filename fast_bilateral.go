@@ -40,6 +40,14 @@ type FastBilateral struct {
 	// 4 -> smallColor3Depth (color)
 	size []int
 	grid *grid
+	auto bool
+}
+
+// NewFastBilateralAuto instanciates a new FastBilateral with automatic sigma values.
+func NewFastBilateralAuto(m image.Image) *FastBilateral {
+	f := NewFastBilateral(m, 16, 0.1)
+	f.auto = true
+	return f
 }
 
 // NewFastBilateral instanciates a new FastBilateral.
@@ -147,6 +155,16 @@ func (f *FastBilateral) minmax() {
 		f.size = f.size[0:f.dimension]
 		f.min = f.min[0:f.dimension]
 		f.max = f.max[0:f.dimension]
+	}
+
+	if f.auto {
+		min := math.Inf(1)
+		max := math.Inf(-1)
+		for n := 0; n < f.dimension-2; n++ {
+			min = math.Min(min, f.min[n])
+			max = math.Max(max, f.max[n])
+		}
+		f.SigmaRange = (max - min) * 0.1
 	}
 
 	f.size[0] = int(float64(d.Dx()-1)/f.SigmaSpace) + 1 + 2*paddingS
