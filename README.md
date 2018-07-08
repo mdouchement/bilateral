@@ -1,5 +1,7 @@
 # Fast Bilateral filter for Golang
 
+[![CircleCI](https://circleci.com/gh/mdouchement/bilateral.svg?style=shield)](https://circleci.com/gh/mdouchement/bilateral)
+[![cover.run](https://cover.run/go/github.com/mdouchement/bilateral.svg?style=flat&tag=golang-1.10)](https://cover.run/go?tag=golang-1.10&repo=github.com%2Fmdouchement%2Fbilateral)
 [![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg)](https://godoc.org/github.com/mdouchement/bilateral)
 [![Go Report Card](https://goreportcard.com/badge/github.com/mdouchement/bilateral)](https://goreportcard.com/report/github.com/mdouchement/bilateral)
 [![License](https://img.shields.io/github/license/mdouchement/bilateral.svg)](http://opensource.org/licenses/MIT)
