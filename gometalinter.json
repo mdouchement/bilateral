@@ -3,5 +3,5 @@
   "Enable": ["vet", "vetshadow", "misspell", "ineffassign", "deadcode", "gofmt"],
   "Vendor": true,
   "Test": true,
-  "Exclude": ["^/.*", "vendor/.*", ".*_test.go$"]
+  "Exclude": ["^/.*", "vendor/.*", "data/.*", "pprof/.*", ".*_test.go$"]
 }
