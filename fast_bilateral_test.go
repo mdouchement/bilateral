@@ -19,7 +19,7 @@ func TestFastBilateralColor(t *testing.T) {
 	mi := images["base"]
 	mo := images["filtered"]
 
-	filter := bilateral.NewFastBilateralAuto(mi)
+	filter := bilateral.Auto(mi)
 	filter.Execute()
 
 	if filter.ColorModel() != color.RGBAModel {
@@ -47,7 +47,7 @@ func TestFastBilateralGray(t *testing.T) {
 	mi := images["base-gray"]
 	mo := images["base-gray-filtered"]
 
-	filter := bilateral.NewFastBilateralAuto(mi)
+	filter := bilateral.Auto(mi)
 	filter.Execute()
 
 	if filter.ColorModel() != color.RGBAModel {

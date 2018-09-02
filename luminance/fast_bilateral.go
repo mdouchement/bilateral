@@ -38,15 +38,15 @@ type FastBilateral struct {
 	auto bool
 }
 
-// NewFastBilateralAuto instanciates a new FastBilateral with automatic sigma values.
-func NewFastBilateralAuto(m image.Image) *FastBilateral {
-	f := NewFastBilateral(m, 16, 0.1)
+// Auto instanciates a new FastBilateral with automatic sigma values.
+func Auto(m image.Image) *FastBilateral {
+	f := New(m, 16, 0.1)
 	f.auto = true
 	return f
 }
 
-// NewFastBilateral instanciates a new FastBilateral.
-func NewFastBilateral(m image.Image, sigmaSpace, sigmaRange float64) *FastBilateral {
+// New instanciates a new FastBilateral.
+func New(m image.Image, sigmaSpace, sigmaRange float64) *FastBilateral {
 	return &FastBilateral{
 		Image:      m,
 		SigmaRange: sigmaRange,
