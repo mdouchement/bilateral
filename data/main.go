@@ -34,11 +34,11 @@ func main() {
 		var m2 image.Image
 		start := time.Now()
 		if entry["type"] == "lum" {
-			fbl := luminance.NewFastBilateralAuto(m)
+			fbl := luminance.Auto(m)
 			fbl.Execute()
 			m2 = fbl.ResultImage()
 		} else {
-			fbl := bilateral.NewFastBilateralAuto(m)
+			fbl := bilateral.Auto(m)
 			fbl.Execute()
 			m2 = fbl.ResultImage()
 		}

@@ -22,10 +22,10 @@ Please cite above paper for research purpose.
 
 ```go
 // Fast Bilateral
-bilateral.NewFastBilateralAuto(m)
+bilateral.Auto(m)
 
 // Luminance Fast Bilateral
-luminance.NewFastBilateralAuto(m)
+luminance.Auto(m)
 ```
 
 ## Requirements
@@ -47,7 +47,7 @@ defer fi.Close()
 m, _, _ := image.Decode(fi)
 
 start := time.Now()
-fbl := bilateral.NewFastBilateral(m, 16, 0.1)
+fbl := bilateral.New(m, 16, 0.1)
 fbl.Execute()
 m2 := fbl.ResultImage() // Or use `At(x, y)` func or just use `fbl` as an image.Image for chained treatments.
 
